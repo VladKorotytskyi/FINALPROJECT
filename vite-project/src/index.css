@@ -1,5 +1,24 @@
+/* 1. Подключение шрифта Inter (все нужные начертания) в самом верху файла */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .container {
   width: min(100% - 2rem, 1200px);
   margin-inline: auto;
-  text-align: center; /* Центрує текст та inline-елементи */
+  text-align: center;
 }

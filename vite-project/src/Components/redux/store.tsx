@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-const dummyReducer = (state = {}) => state;
+import { transactionsReducer } from "./Transactions/transactionsSlice";
+import { usersReducer } from "./Users/usersSlice";
 
 export const store = configureStore({
   reducer: {
-    auth: dummyReducer,
-    transactions: dummyReducer,
+    transactions: transactionsReducer,
+    users: usersReducer,
   },
 });
 
