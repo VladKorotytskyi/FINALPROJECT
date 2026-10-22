@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import { Header } from "./Components/Header/Header";
 import { ProtectedRoute } from "./Components/ProtectedRoute/ProtectedRoute";
 import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
 import { AuthPage } from "./pages/AuthPage";
 import { TransactionsPage } from "./pages/TransactionsPage";
 import { ReportPage } from "./pages/ReportPage";
@@ -24,12 +25,17 @@ function App(): JSX.Element {
     <Routes>
       <Route path="/" element={<Navigate to="/main" replace />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
 
       <Route element={<ProtectedRoute />}>
         <Route element={<MainLayout />}>
           <Route path="/main" element={<AuthPage />} />
           <Route path="/transactions" element={<TransactionsPage />} />
-          <Route path="/report" element={<ReportPage />} />
+          <Route
+            path="/report"
+            element={<Navigate to="/report/expenses" replace />}
+          />
+          <Route path="/report/:type" element={<ReportPage />} />
         </Route>
       </Route>
 

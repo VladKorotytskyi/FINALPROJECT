@@ -1,24 +1,42 @@
 import type { JSX } from "react";
+import { MdBarChart } from "react-icons/md";
+import { Balance } from "../Components/Balance/Balance";
 import { MainForm } from "../Components/MainForm/MainForm";
-import * as S from "./AuthPage.styled";
+import { TransactionTable } from "../Components/TransactionTable/TransactionTable";
+import { SummaryCard } from "../Components/SummaryCard/SummaryCard";
+import {
+  Page,
+  TopBar,
+  ReportLink,
+  Tabs,
+  Tab,
+  MainContainer,
+  BottomSection,
+} from "./AuthPage.styled";
 
 export function TransactionsPage(): JSX.Element {
   return (
-    <S.Page>
-      <S.TopBar>
-        <S.BalanceLabel>Баланс:</S.BalanceLabel>
-        <S.BalanceBox>ApiBalance UAH</S.BalanceBox>
-        <S.ConfirmButton>ПІДТВЕРДИТИ</S.ConfirmButton>
+    <Page>
+      <TopBar>
+        <Balance />
+        <ReportLink to="/report">
+          Перейти до розрахунків
+          <MdBarChart size={18} color="#333" />
+        </ReportLink>
+      </TopBar>
 
-        <S.ReportLink to="/report">Перейти до розрахунків</S.ReportLink>
-      </S.TopBar>
+      <Tabs>
+        <Tab to="/main">Витрати</Tab>
+        <Tab to="/transactions">Дохід</Tab>
+      </Tabs>
 
-      <S.Tabs>
-        <S.Tab to="/main">Витрати</S.Tab>
-        <S.Tab to="/transactions">Дохід</S.Tab>
-      </S.Tabs>
-
-      <MainForm />
-    </S.Page>
+      <MainContainer>
+        <MainForm type="income" />
+        <BottomSection>
+          <TransactionTable type="income" />
+          <SummaryCard type="income" />
+        </BottomSection>
+      </MainContainer>
+    </Page>
   );
 }

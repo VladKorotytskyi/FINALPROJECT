@@ -1,13 +1,33 @@
 import styled from "styled-components";
+import { device } from "../Components/Breakpoints";
 
 export const Wrapper = styled.div`
   position: relative;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 900px;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
   background: #f4f4f4;
   font-family: "Roboto", sans-serif;
+
+  @media ${device.mobile} {
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 16px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 16px;
+    flex-direction: column;
+  }
 `;
 
 export const Logo = styled.div`
@@ -43,9 +63,13 @@ export const Brand = styled.div`
 
 export const BrandTitle = styled.h1`
   margin: 0;
-  font-size: 72px;
-  font-weight: 700;
-  color: #444;
+  font-size: 102px;
+  font-weight: 900;
+  color: #000000;
+
+  @media ${device.mobile} {
+    font-size: 64px;
+  }
 `;
 
 export const BrandSubtitle = styled.p`
